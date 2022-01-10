@@ -2,7 +2,7 @@
 
 include 'header.php';
 
-$kategorisor = $db->prepare("SELECT * FROM kategori order by kategori_sira ASC");
+$kategorisor = $db->prepare("SELECT * FROM kategori order by kategori_id ASC");
 $kategorisor->execute();
 
 ?>
@@ -47,7 +47,6 @@ $kategorisor->execute();
                 <tr>
                   <th>S.No</th>
                   <th>Kategori Ad</th>
-                  <th>Kategori Sira</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -65,12 +64,11 @@ $kategorisor->execute();
                   <tr>
                     <td width="20"><?php echo $say ?></td>
                     <td><?php echo $kategoricek['kategori_ad'] ?></td>
-                    <td><?php echo $kategoricek['kategori_sira'] ?></td>
                     <td>
                       <center><a href="kategori-duzenle.php?kategori_id=<?php echo $kategoricek['kategori_id']; ?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center>
                     </td>
                     <td>
-                      <center><a href="../connect/islem.php?kategori_id=<?php echo $kategoricek['kategori_id']; ?>&kategorisil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center>
+                      <center><a href="admin/connect/islem.php?kategori_id=<?php echo $kategoricek['kategori_id']; ?>&kategorisil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center>
                     </td>
                   </tr>
 

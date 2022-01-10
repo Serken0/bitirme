@@ -3,7 +3,7 @@ ob_start();
 session_start();
 
 include 'baglan.php';
-include '../components/fonksiyon.php';
+include '../../fonksiyon.php';
 
 if (isset($_POST['admingiris'])) {
 
@@ -22,12 +22,12 @@ if (isset($_POST['admingiris'])) {
 	if ($say==1) {
 
 		$_SESSION['kullanici_mail']=$kullanici_mail;
-		header("Location:../components/index.php");
+		header("Location:../..//index.php");
 		exit;
 
 	} else {
 
-		header("Location:../components/login.php?durum=no");
+		header("Location:../..//login.php?durum=no");
 		exit;
 	}
 }
@@ -50,11 +50,11 @@ if (isset($_POST['kullaniciduzenle'])) {
 
 	if ($update) {
 
-		Header("Location:../components/kullanici-duzenle.php?kullanici_id=$kullanici_id&durum=ok");
+		Header("Location:../../kullanici.php?kullanici_id=$kullanici_id&durum=ok");
 
 	} else {
 
-		Header("Location:../components/kullanici-duzenle.php?kullanici_id=$kullanici_id&durum=no");
+		Header("Location:../../kullanici.php?kullanici_id=$kullanici_id&durum=no");
 	}
 }
 
@@ -72,11 +72,11 @@ if (isset($_POST['kullanicibilgiguncelle'])) {
 
 	if ($update) {
 
-		Header("Location:../../hesabim?durum=ok");
+		Header("Location:../../kullanici.php?durum=ok");
 
 	} else {
 
-		Header("Location:../../hesabim?durum=no");
+		Header("Location:../../kullanici.php?durum=no");
 	}
 }
 
@@ -89,11 +89,11 @@ if ($_GET['kullanicisil']=="ok") {
 
 	if ($kontrol) {
 
-		header("location:../components/kullanici.php?sil=ok");
+		header("location:../../kullanici.php?sil=ok");
 
 	} else {
 
-		header("location:../components/kullanici.php?sil=no");
+		header("location:../../kullanici.php?sil=no");
 
 	}
 }
@@ -102,24 +102,20 @@ if (isset($_POST['kategoriduzenle'])) {
 
 	$kategori_id=$_POST['kategori_id'];
 	$kategori_seourl=seo($_POST['kategori_ad']);
-
-	
 	$kaydet=$db->prepare("UPDATE kategori SET
-		kategori_ad=:ad,
-		kategori_sira=:sira
+		kategori_ad=:ad
 		WHERE kategori_id={$_POST['kategori_id']}");
 	$update=$kaydet->execute(array(
-		'ad' => $_POST['kategori_ad'],
-		'sira' => $_POST['kategori_sira']		
+		'ad' => $_POST['kategori_ad']		
 	));
 
 	if ($update) {
 
-		Header("Location:../components/kategori-duzenle.php?durum=ok&kategori_id=$kategori_id");
+		Header("Location:../../kategori.php?durum=ok&kategori_id=$kategori_id");
 
 	} else {
 
-		Header("Location:../components/kategori-duzenle.php?durum=no&kategori_id=$kategori_id");
+		Header("Location:../../kategori.php?durum=no&kategori_id=$kategori_id");
 	}
 }
 
@@ -128,21 +124,19 @@ if (isset($_POST['kategoriekle'])) {
 	$kategori_seourl=seo($_POST['kategori_ad']);
 
 	$kaydet=$db->prepare("INSERT INTO kategori SET
-		kategori_ad=:ad,
-		kategori_sira=:sira
+		kategori_ad=:ad
 		");
 	$insert=$kaydet->execute(array(
-		'ad' => $_POST['kategori_ad'],
-		'sira' => $_POST['kategori_sira']		
+		'ad' => $_POST['kategori_ad']		
 	));
 
 	if ($insert) {
 
-		Header("Location:../components/kategori.php?durum=ok");
+		Header("Location:../../kategori.php?durum=ok");
 
 	} else {
 
-		Header("Location:../components/kategori.php?durum=no");
+		Header("Location:../../kategori.php?durum=no");
 	}
 }
 
@@ -155,11 +149,11 @@ if ($_GET['kategorisil']=="ok") {
 
 	if ($kontrol) {
 
-		Header("Location:../components/kategori.php?durum=ok");
+		Header("Location:../../kategori.php?durum=ok");
 
 	} else {
 
-		Header("Location:../components/kategori.php?durum=no");
+		Header("Location:../../kategori.php?durum=no");
 	}
 }
 
@@ -172,11 +166,11 @@ if ($_GET['urunsil']=="ok") {
 
 	if ($kontrol) {
 
-		Header("Location:../components/urun.php?durum=ok");
+		Header("Location:../../urun.php?durum=ok");
 
 	} else {
 
-		Header("Location:../components/urun.php?durum=no");
+		Header("Location:../../urun.php?durum=no");
 	}
 }
 
@@ -202,11 +196,11 @@ if (isset($_POST['urunekle'])) {
 
 	if ($insert) {
 
-		Header("Location:../components/urun.php?durum=ok");
+		Header("Location:../../urun.php?durum=ok");
 
 	} else {
 
-		Header("Location:../components/urun.php?durum=no");
+		Header("Location:../../urun.php?durum=no");
 	}
 }
 
@@ -232,11 +226,11 @@ if (isset($_POST['urunduzenle'])) {
 
 	if ($update) {
 
-		Header("Location:../components/urun-duzenle.php?durum=ok&urun_id=$urun_id");
+		Header("Location:../../urun.php?durum=ok&urun_id=$urun_id");
 
 	} else {
 
-		Header("Location:../components/urun-duzenle.php?durum=no&urun_id=$urun_id");
+		Header("Location:../../urun.php?durum=no&urun_id=$urun_id");
 	}
 }
 ?>

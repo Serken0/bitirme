@@ -35,7 +35,7 @@ include 'header.php';
           <div class="x_content">
             <br />
 
-            <form action="../connect/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <form action="admin/connect/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori Seç
@@ -46,9 +46,9 @@ include 'header.php';
 
                   $urun_id = @$uruncek['kategori_id'];
 
-                  $kategorisor = $db->prepare("select * from kategori where kategori_ust=:kategori_ust order by kategori_sira");
+                  $kategorisor = $db->prepare("select * from kategori where kategori_order=:kategori_order order by kategori_id");
                   $kategorisor->execute(array(
-                    'kategori_ust' => 0
+                    'kategori_order' => 0
                   ));
 
                   ?>
@@ -78,30 +78,6 @@ include 'header.php';
                   <input type="text" id="first-name" name="urun_ad" placeholder="Ürün adını giriniz" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
-
-              <script type="text/javascript">
-                CKEDITOR.replace('editor1',
-
-                  {
-
-                    filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
-
-                    filebrowserImageBrowseUrl: 'ckfinder/ckfinder.html?type=Images',
-
-                    filebrowserFlashBrowseUrl: 'ckfinder/ckfinder.html?type=Flash',
-
-                    filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-
-                    filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-
-                    filebrowserFlashUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-
-                    forcePasteAsPlainText: true
-
-                  }
-
-                );
-              </script>
 
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ürün Fiyat

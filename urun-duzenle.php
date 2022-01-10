@@ -42,7 +42,7 @@ $uruncek = $urunsor->fetch(PDO::FETCH_ASSOC);
           <div class="x_content">
             <br />
 
-            <form action="../connect/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <form action="admin/connect/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
               <!-- Kategori seçme başlangıç -->
               <div class="form-group">
@@ -54,9 +54,9 @@ $uruncek = $urunsor->fetch(PDO::FETCH_ASSOC);
 
                   $urun_id = $uruncek['kategori_id'];
 
-                  $kategorisor = $db->prepare("select * from kategori where kategori_ust=:kategori_ust order by kategori_sira");
+                  $kategorisor = $db->prepare("select * from kategori where kategori_order=:kategori_order order by kategori_id");
                   $kategorisor->execute(array(
-                    'kategori_ust' => 0
+                    'kategori_order' => 0
                   ));
 
                   ?>
@@ -90,33 +90,7 @@ $uruncek = $urunsor->fetch(PDO::FETCH_ASSOC);
                 </div>
               </div>
 
-              <!-- Ck Editör Başlangıç -->
-
-              <script type="text/javascript">
-                CKEDITOR.replace('editor1',
-
-                  {
-
-                    filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
-
-                    filebrowserImageBrowseUrl: 'ckfinder/ckfinder.html?type=Images',
-
-                    filebrowserFlashBrowseUrl: 'ckfinder/ckfinder.html?type=Flash',
-
-                    filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-
-                    filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-
-                    filebrowserFlashUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-
-                    forcePasteAsPlainText: true
-
-                  }
-
-                );
-              </script>
-
-              <!-- Ck Editör Bitiş -->
+              
 
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ürün Fiyat

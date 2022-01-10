@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include '../connect/baglan.php';
+include 'admin/connect/baglan.php';
 include 'fonksiyon.php';
 //veriyi seç
 $kullanicisor = $db->prepare("SELECT * FROM kullanici where kullanici_mail=:mail");
@@ -29,29 +29,21 @@ if ($say == 0) {
   <title>BİTİRME</title>
 
   <!-- Bootstrap -->
-  <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
-  <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+  <link href="admin/vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
-  <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <link href="admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
   <!-- Datatables -->
-  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-
-  <!-- Dropzone.js -->
-  <link href="../vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-  <!-- Dropzone.js -->
-  <script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
-  <!-- Ck Editör -->
-  <!--<script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>-->
-  <script src="ckeditor/ckeditor.js"></script>
+  <link href="admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
   <!-- Custom Theme Style -->
-  <link href="../build/css/custom.min.css" rel="stylesheet">
+  <link href="admin/build/css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">

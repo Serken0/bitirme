@@ -51,7 +51,7 @@ $kullanicicek = $kullanicisor->fetch(PDO::FETCH_ASSOC);
           <div class="x_content">
             <br />
 
-            <form action="../connect/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+            <form action="admin/connect/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
               <?php
 
